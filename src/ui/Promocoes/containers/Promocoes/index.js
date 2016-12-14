@@ -9,6 +9,10 @@ query allPromocoes {
     id
     nome
     imagemUrl
+    restaurante {
+      nome
+      backgroundUrl
+    }
   }
 }
 `

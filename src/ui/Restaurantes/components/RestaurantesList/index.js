@@ -26,7 +26,7 @@ export default class RestaurantesList extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   _renderRow(data) {
     return (
       <TouchableHighlight>
@@ -38,13 +38,13 @@ export default class RestaurantesList extends Component {
     console.log(this.props)
     return (
       <View style={{flex: 1, backgroundColor: 'gray'}}>
-      <RefreshableListView
-        style={{backgroundColor: 'white'}}
-        rows={this.props.restaurantes}
-        renderRow={this._renderRow}
-        loading={this.props.loading}
-        onRefetch={this.props.refetch}
-      />
+        <RefreshableListView
+          style={{backgroundColor: 'white'}}
+          rows={this.props.restaurantes}
+          renderRow={this._renderRow}
+          loading={this.props.loading}
+          onRefetch={this.props.refetch}
+        />
       </View>
     );
   }

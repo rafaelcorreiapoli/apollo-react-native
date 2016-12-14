@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 
 export default ({ children }) => (
-  <View style={{ flex: 1, marginTop: 55 }}>
+  <View style={{ flex: 1 }}>
     {children}
   </View>
 )

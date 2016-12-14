@@ -30,7 +30,7 @@ export default class PromocoesList extends Component {
   _renderRow(data) {
     return (
       <TouchableHighlight>
-        <Text>Promoco: {data.nome}</Text>
+        <Text>Promoco: {data.nome} / {data.restaurante.nome}</Text>
       </TouchableHighlight>
     )
   }
@@ -39,7 +39,9 @@ export default class PromocoesList extends Component {
 
     return (
       <View style={{flex: 1, backgroundColor: 'gray'}}>
+      <Text>Promocao</Text>
         <RefreshableListView
+
           style={{backgroundColor: 'white'}}
           rows={this.props.promocoes}
           renderRow={this._renderRow}
