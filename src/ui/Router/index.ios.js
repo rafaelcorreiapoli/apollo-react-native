@@ -3,14 +3,20 @@ import React, {
   PropTypes,
 } from 'react'
 import {
+  View,
+  ActivityIndicator,
+  Text
+} from 'react-native'
+import {
   StackNavigation,
   withNavigation
 } from '@exponent/ex-navigation'
 import Router from '@router'
 import { connect } from 'react-redux'
-
+import LoadingOverlay from '@ui/Shared/components/LoadingOverlay'
 const mapStateToProps = state => ({
-  currentUser: state.login
+  currentUser: state.login,
+  loading: state.login.get('loading')
 })
 
 const isLoggedIn = userState => {
@@ -50,11 +56,22 @@ export default class Main extends Component {
   }
 
   render() {
+    const {
+      loading
+    } = this.props
     return (
-      <StackNavigation
-        id="root"
-        initialRoute={this._getInitialRoute()}
-      />
+      <View style={{flex: 1}}>
+        <StackNavigation
+          id="root"
+          initialRoute={this._getInitialRoute()}
+        />
+        {
+          loading &&
+          <LoadingOverlay />
+        }
+
+      </View>
+
     )
   }
 }
