@@ -1,7 +1,7 @@
 import React, {
   Component,
   PropTypes,
-} from 'react';
+} from 'react'
 
 import {
   View,
@@ -9,13 +9,13 @@ import {
   Button,
   StatusBar,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 
 import ControlledDrawerLayoutAndroid from './ControlledDrawerLayoutAndroid'
 
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons'
 import { DefaultRenderer } from 'react-native-router-flux'
 import { getDrawerOpen } from './select'
 import { closeDrawer, openDrawer } from './actions'
@@ -46,8 +46,8 @@ class SideMenu extends Component {
         />
         <Button
           onPress={() => {
-            Actions.login({type: 'reset'})
-            // this.props.closeDrawer()
+            this.props.closeDrawer()
+            Actions.guest()
           }}
           title="Logout"
           color="#ee1477"
@@ -63,8 +63,8 @@ class DrawerLayout extends Component {
   static propTypes = {}
 
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
     this._handleIconClick = this._handleIconClick.bind(this)
   }
 
@@ -120,7 +120,7 @@ class DrawerLayout extends Component {
           <DefaultRenderer navigationState={this.props.children[0]} onNavigate={this.props.onNavigate} />
         </Drawer>
       </View>
-    );
+    )
   }
 }
 
