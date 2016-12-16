@@ -1,7 +1,9 @@
 import React, {
   Component,
 } from 'react'
-
+import {
+  StyleSheet
+} from 'react-native'
 import ScreenContent from '@ui/Shared/ScreenContent'
 import Login from '../containers/Login'
 
@@ -22,10 +24,15 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      <ScreenContent>
+      <ScreenContent padStatusBar style={styles.container}>
         <Login/>
       </ScreenContent>
     )
   }
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#9ad7fe'
+  }
+})
