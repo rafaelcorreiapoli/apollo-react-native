@@ -14,7 +14,7 @@ export const setFormValue = createAction(SET_FORM_VALUE, (key, value) => ({ key,
 
 export const loginWithPasswordFail = createAction(LOGIN_WITH_PASSWORD_FAIL)
 export const loginWithPassword = createAction(LOGIN_WITH_PASSWORD_REQUEST, (email, password) => ({ email, password }))
-export const loginWithPasswordSuccess = createAction(LOGIN_WITH_PASSWORD_SUCCESS)
+export const loginWithPasswordSuccess = createAction(LOGIN_WITH_PASSWORD_SUCCESS, token => ({ token }))
 export const logout = createAction(LOGOUT_REQUEST)
 export const logoutSuccess = createAction(LOGOUT_SUCCESS)
 export const logoutFail = createAction(LOGOUT_FAIL)

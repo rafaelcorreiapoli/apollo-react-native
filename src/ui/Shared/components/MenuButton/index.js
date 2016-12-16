@@ -27,9 +27,7 @@ export default class MenuButton extends Component {
 
   render() {
     const { navigation } = this.props
-
-   const navigator = navigation.getNavigator('main')
-
+    const navigator = navigation.getNavigator('main')
     return (
       <View style={styles.container}>
         <TouchableOpacity

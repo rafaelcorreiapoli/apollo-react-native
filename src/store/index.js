@@ -28,7 +28,7 @@ export default (initialState = {}) => {
 
   const store = createStoreWithNavigation(rootReducer, initialState, enhancer)
 
-
+sagaMiddleware.run(loginSaga)
   if (module.hot) {
     module.hot.accept('../reducers/index', () => {
       const reducers = require('../reducers/index').default
@@ -36,6 +36,6 @@ export default (initialState = {}) => {
     })
   }
 
-  sagaMiddleware.run(loginSaga)
+
   return store
 }
