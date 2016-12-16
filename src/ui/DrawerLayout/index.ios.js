@@ -10,6 +10,11 @@ import {
   StatusBar,
   StyleSheet
 } from 'react-native'
+import {
+  StackNavigation,
+  DrawerNavigation,
+  DrawerNavigationItem,
+} from '@exponent/ex-navigation'
 
 import ControlledDrawerLayoutAndroid from './ControlledDrawerLayoutAndroid'
 
@@ -20,6 +25,7 @@ import { DefaultRenderer } from 'react-native-router-flux'
 import { getDrawerOpen } from './select'
 import { closeDrawer, openDrawer } from './actions'
 import Drawer from 'react-native-drawer'
+import Header from './components/Header'
 
 class SideMenu extends Component {
   render() {
@@ -72,54 +78,43 @@ class DrawerLayout extends Component {
     this.props.openDrawer()
   }
 
-  render() {
-    const drawerStyles = {
-      drawer: {
-        shadowColor: '#000',
-        shadowOpacity: 1,
-        shadowRadius: 3
-      },
-      main: {
-        paddingLeft: 3
-      },
-      mainOverlay: {
-        backgroundColor: '#000',
-        opacity: 0
-      }
-    }
-    const tweenHandler = (ratio) => ({
-      mainOverlay: {
-        opacity: ratio / 2,
-        backgroundColor: '#000'
-      },
-    })
-
+  _renderHeader() {
     return (
-      <View style={styles.container}>
-        <StatusBar
-          barStyle="light-content"
-        />
-        <Drawer
-          open={this.props.drawerOpen}
-          onOpen={this.props.openDrawer}
-          onClose={this.props.closeDrawer}
-          type="overlay"
-          content={
-            <SideMenu
-              closeDrawer={this.props.closeDrawer}
-              openDrawer={this.props.openDrawer}
-            />
-          }
-          tapToClose={true}
-          openDrawerOffset={0.2} // 20% gap on the right side of drawer
-          panCloseMask={0.2}
-          closedDrawerOffset={-3}
-          styles={drawerStyles}
-          tweenHandler={tweenHandler}
-        >
-          <DefaultRenderer navigationState={this.props.children[0]} onNavigate={this.props.onNavigate} />
-        </Drawer>
+      <View>
+        <Text>Header</Text>
       </View>
+    )
+  }
+  render() {
+    return (
+      <DrawerNavigation
+        id="main"
+        initialItem="restaurantes"
+        drawerWidth={300}
+        renderHeader={this._renderHeader}
+      >
+        <DrawerNavigationItem
+          id="restaurantes"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('Home', isSelected)}
+        >
+          <StackNavigation
+            id="restaurantes"
+            initialRoute={Router.getRoute('home')}
+          />
+        </DrawerNavigationItem>
+
+        <DrawerNavigationItem
+          id="promocoes"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('About', isSelected)}
+        >
+          <StackNavigation
+            id="promocoes"
+            initialRoute={Router.getRoute('about')}
+          />
+        </DrawerNavigationItem>
+      </DrawerNavigation>
     )
   }
 }

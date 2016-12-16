@@ -1,11 +1,15 @@
 import React, {
   Component,
   PropTypes,
+
 } from 'react'
 
-import DrawerNavigation from '@ui/Drawer/components/Navigation'
+import {
+  View,
+  Text
+} from 'react-native'
 
-export default class Router extends Component {
+export default class Item extends Component {
 
   static defaultProps = {}
 
@@ -17,8 +21,15 @@ export default class Router extends Component {
   }
 
   render() {
+    const {
+      label
+    } = this.props
+
     return (
-      <DrawerNavigation />
+      <View>
+        <Text>{label}</Text>
+      </View>
     )
   }
+
 }

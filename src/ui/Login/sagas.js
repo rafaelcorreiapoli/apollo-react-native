@@ -12,13 +12,11 @@ function* loginWithPasswordHandler(action) {
    try {
       yield call(delay, 1000)
       const navigatorUID = yield select(state => {
-        console.log(state)
         return state.navigation.currentNavigatorUID
       })
       yield put(NavigationActions.push(navigatorUID, Router.getRoute('restaurantes')))
 
    } catch (e) {
-     console.log(e)
       const error = new Error(e.error)
       yield put(loginWithPasswordFail(error))
    }

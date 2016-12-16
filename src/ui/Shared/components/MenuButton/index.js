@@ -2,7 +2,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react'
-
+import { withNavigation } from '@exponent/ex-navigation'
 import {
   TouchableOpacity,
   View,
@@ -13,6 +13,7 @@ import {
 } from '@resources/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+@withNavigation
 export default class MenuButton extends Component {
 
   static defaultProps = {}
@@ -25,9 +26,15 @@ export default class MenuButton extends Component {
   }
 
   render() {
+    const { navigation } = this.props
+
+   const navigator = navigation.getNavigator('main')
+
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigator.toggleDrawer()}
+        >
           <Icon name="md-menu" color={MENU_BUTTON_COLOR} size={24} />
         </TouchableOpacity>
       </View>

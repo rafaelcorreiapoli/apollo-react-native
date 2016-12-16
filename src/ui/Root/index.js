@@ -4,13 +4,14 @@ import React, {
 
 import { ApolloProvider } from 'react-apollo'
 import client from '@apollo/client'
-import RouterComponent, { Router } from '@ui/Router'
+import RouterComponent from '@ui/Router'
+import router from '@router'
 import configureStore from '../../store'
 import { NavigationProvider, NavigationContext } from '@exponent/ex-navigation'
 const store = configureStore()
 
 const navigationContext = new NavigationContext({
-  router: Router,
+  router,
   store,
 })
 

@@ -1,3 +1,5 @@
 export const PRIMARY_COLOR = '#9a6db6'
 export const MENU_BUTTON_COLOR = '#fff'
 export const TITLE_COLOR = '#fff'
+export const LIGHT_GRAY = '#eee'
+export const ACCENT_COLOR = '#36fc86'
