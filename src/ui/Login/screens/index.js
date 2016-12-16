@@ -1,23 +1,23 @@
 import React, {
   Component,
-  PropTypes,
-} from 'react';
-import {
-  View,
-  Text
-} from 'react-native';
+} from 'react'
+
 import ScreenContent from '@ui/Shared/ScreenContent'
 import Login from '../containers/Login'
 
 export default class LoginScreen extends Component {
-
+  static route = {
+    navigationBar: {
+      visible: false
+    }
+  }
   static defaultProps = {}
 
   static propTypes = {}
 
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
   }
 
   render() {
@@ -25,7 +25,7 @@ export default class LoginScreen extends Component {
       <ScreenContent>
         <Login/>
       </ScreenContent>
-    );
+    )
   }
 
 }

@@ -1,12 +1,32 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import rootReducer from '../reducers'
+import { createNavigationEnabledStore } from '@exponent/ex-navigation'
+import createSagaMiddleware from 'redux-saga'
+import loginSaga from '@ui/Login/sagas'
+import createLogger from 'redux-logger'
+
+const logger = createLogger()
+const createStoreWithNavigation = createNavigationEnabledStore({
+  createStore,
+  navigationStateKey: 'navigation',
+})
+
 
 export default (initialState = {}) => {
-
+  const sagaMiddleware = createSagaMiddleware()
+  const loggerMiddleware = createLogger()
   // ======================================================
   // Store Instantiation and HMR Setup
   // ======================================================
-  const store = createStore(rootReducer, initialState)
+
+  const enhancer = compose(
+    applyMiddleware(
+      sagaMiddleware,
+      logger
+    )
+  )
+
+  const store = createStoreWithNavigation(rootReducer, initialState, enhancer)
 
 
   if (module.hot) {
@@ -16,5 +36,6 @@ export default (initialState = {}) => {
     })
   }
 
+  sagaMiddleware.run(loginSaga)
   return store
 }

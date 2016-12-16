@@ -18,6 +18,6 @@ export default class ScreenContent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 64
+    paddingTop: 20
   }
 })

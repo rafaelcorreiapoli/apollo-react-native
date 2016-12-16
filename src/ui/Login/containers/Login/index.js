@@ -1,18 +1,11 @@
-import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
 import LoginForm from '../../components/LoginForm'
-import waitLoading from '../../../Shared/hocs/waitLoading'
+import { connect } from 'react-redux'
+import { loginWithPassword } from '../../actions'
 
-const query = gql`
-query allRestaurantes {
-  allRestaurantes {
-    id
-    nome
-    backgroundUrl
+const mapDispatchToProps = dispatch => ({
+  loginWithPassword() {
+    dispatch(loginWithPassword())
   }
-}
-`
-
-
+})
 // export default graphql(query)(LoginForm)
-export default LoginForm
+export default connect(null, mapDispatchToProps)(LoginForm)
