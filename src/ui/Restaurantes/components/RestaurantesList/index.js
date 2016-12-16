@@ -1,16 +1,13 @@
 import React, {
   Component,
   PropTypes,
-} from 'react';
+} from 'react'
 
 import {
   View,
-  ListView,
   Text,
-  RefreshControl,
   TouchableHighlight,
-  ActivityIndicator
-} from 'react-native';
+} from 'react-native'
 
 import RefreshableListView from '@ui/Shared/components/RefreshableListView'
 
@@ -21,15 +18,18 @@ export default class RestaurantesList extends Component {
     loading: false
   }
 
-  static propTypes = {}
+  static propTypes = {
+    restaurantes: PropTypes.array,
+    loading: PropTypes.bool
+  }
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   _renderRow(data) {
     return (
-      <TouchableHighlight>
+      <TouchableHighlight style={{padding: 10}}>
         <Text>{data.nome}</Text>
       </TouchableHighlight>
     )
@@ -45,7 +45,7 @@ export default class RestaurantesList extends Component {
           onRefetch={this.props.refetch}
         />
       </View>
-    );
+    )
   }
 
 }

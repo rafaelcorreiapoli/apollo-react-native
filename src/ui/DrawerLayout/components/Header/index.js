@@ -5,14 +5,21 @@ import React, {
 
 import {
   View,
+  Text,
   StyleSheet
 } from 'react-native'
+
+import {
+  ACCENT_COLOR
+} from '@resources/colors'
 
 export default class Header extends Component {
 
   static defaultProps = {}
 
-  static propTypes = {}
+  static propTypes = {
+    name: PropTypes.string
+  }
 
   constructor(props) {
     super(props)
@@ -20,9 +27,12 @@ export default class Header extends Component {
   }
 
   render() {
+    const {
+      name
+    } = this.props
     return (
-      <View styl={styles.container}>
-        <Text>Rafael Ribeiro Correia</Text>
+      <View style={styles.container}>
+        <Text>{name}</Text>
       </View>
     )
   }
@@ -30,6 +40,8 @@ export default class Header extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20
+    paddingTop: 20,
+    backgroundColor: ACCENT_COLOR,
+    height: 100
   }
 })

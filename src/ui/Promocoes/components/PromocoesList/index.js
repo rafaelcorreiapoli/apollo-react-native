@@ -1,7 +1,7 @@
 import React, {
   Component,
   PropTypes,
-} from 'react';
+} from 'react'
 
 import {
   View,
@@ -10,7 +10,7 @@ import {
   RefreshControl,
   TouchableHighlight,
   ActivityIndicator
-} from 'react-native';
+} from 'react-native'
 
 import RefreshableListView from '../../../Shared/components/RefreshableListView'
 
@@ -24,22 +24,20 @@ export default class PromocoesList extends Component {
   static propTypes = {}
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   _renderRow(data) {
     return (
-      <TouchableHighlight>
-        <Text>Promoco: {data.nome} / {data.restaurante.nome}</Text>
+      <TouchableHighlight style={{padding: 10}}>
+        <Text>{data.nome} / {data.restaurante.nome}</Text>
       </TouchableHighlight>
     )
   }
   render() {
     return (
       <View style={{flex: 1, backgroundColor: 'gray'}}>
-      <Text>Promocao</Text>
         <RefreshableListView
-
           style={{backgroundColor: 'white'}}
           rows={this.props.promocoes}
           renderRow={this._renderRow}
@@ -47,7 +45,7 @@ export default class PromocoesList extends Component {
           onRefetch={this.props.refetch}
         />
       </View>
-    );
+    )
   }
 
 }

@@ -4,7 +4,7 @@ import React, {
 
 import { ApolloProvider } from 'react-apollo'
 import client from '@apollo/client'
-import RouterComponent from '@ui/Router'
+import App from '@ui/App'
 import router from '@router'
 import configureStore from '../../store'
 import { NavigationProvider, NavigationContext } from '@exponent/ex-navigation'
@@ -15,7 +15,7 @@ const navigationContext = new NavigationContext({
   store,
 })
 
-export default class App extends Component {
+export default class Root extends Component {
   constructor(props) {
     super(props)
   }
@@ -24,7 +24,7 @@ export default class App extends Component {
     return (
       <ApolloProvider client={client} store={store}>
         <NavigationProvider context={navigationContext}>
-          <RouterComponent />
+          <App />
         </NavigationProvider>
       </ApolloProvider>
     )
