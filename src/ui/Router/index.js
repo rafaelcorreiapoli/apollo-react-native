@@ -11,15 +11,15 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Scene key="root" tabs>
-          <Scene key="guest" component={GuestLayout} hideNavBar>
-            <Scene key="login" component={Login} initial />
-          </Scene>
+        <Scene key="root">
+          {/* <Scene key="guest" component={GuestLayout} hideNavBar> */}
+            <Scene key="login" component={Login} hideNavBar/>
+          {/* </Scene> */}
           <Scene key="drawer" component={DrawerLayout}>
             <Scene key="main" tabs hideNavBar>
-              <Scene key="promocoes" component={Promocoes} title="Promoções"  hideNavBar/>
               <Scene key="restaurantes" component={Restaurantes} title="Restaurantes" hideNavBar/>
-            </Scene>
+              <Scene key="promocoes" component={Promocoes} title="Promoções" hideNavBar />
+             </Scene>
           </Scene>
         </Scene>
       </Router>

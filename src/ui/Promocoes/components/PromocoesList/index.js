@@ -35,8 +35,6 @@ export default class PromocoesList extends Component {
     )
   }
   render() {
-    console.log(this.props)
-
     return (
       <View style={{flex: 1, backgroundColor: 'gray'}}>
       <Text>Promocao</Text>

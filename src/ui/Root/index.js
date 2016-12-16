@@ -29,14 +29,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-
-      <ApolloProvider client={client}>
+      <ApolloProvider client={client} store={store}>
         <View style={{ flex: 1}}>
           <Router />
         </View>
       </ApolloProvider>
-      </Provider>
     );
   }
 

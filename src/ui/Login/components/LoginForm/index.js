@@ -28,7 +28,7 @@ export default class Form extends Component {
         <Button
           title="Login"
           color="#cb13de"
-          onPress={() => Actions.promocoes()}
+          onPress={() => Actions.drawer()}
         />
       </View>
     );

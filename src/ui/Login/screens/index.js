@@ -23,7 +23,7 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <ScreenContent>
-        <Login />
+        <Login/>
       </ScreenContent>
     );
   }
